@@ -49,7 +49,7 @@ export const AdminUserSlice = createSlice({
     },
     sendNot: (state, action: PayloadAction<object>) => {
       console.log(state.users)
-      let findUser = state.users.find((elem)=> elem.id == action.payload.id)
+      let findUser = current(state.users).find((elem)=> elem.id == action.payload.id)
       console.log(findUser)
 //       let arr = 
 //       axios.patch("https://usersapitaskk.onrender.com/users/" + action.payload.id, {
@@ -63,9 +63,16 @@ export const AdminUserSlice = createSlice({
       console.log(action.payload)
       let findUser = current(state.users).find((elem)=> elem.id == action.payload.userId)
       console.log(findUser)
-      // axios.patch(`https://usersapitaskk.onrender.com/users/${action.payload.userId}` +
-      // )
+      state.users
+      let arr = findUser.posts.filter((elem)=>elem.id!=action.payload.postId)
+      
+      console.log(arr)
 
+axios.patch(`https://usersapitaskk.onrender.com/users/${action.payload.userId}` ,{
+  posts:arr,
+}
+
+      )
       
     },
   },

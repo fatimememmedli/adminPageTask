@@ -61,7 +61,7 @@ console.log(modal)
       headerName: "Notification",
       flex: 1,
       width: 180,
-      renderCell: (e) => (
+      renderCell: (event) => (
         <div>
       <Button onClick={handleOpen}>Send</Button>
       <Modal
@@ -80,8 +80,9 @@ console.log(modal)
             setModal(e.target.value)
           }}  id="standard-basic" label="Notification" variant="standard" />
           <Button onClick={()=>{
+            console.log(event.row.id)
              let obj:object = {
-              id:e.row.id,
+              id:event.row.id,
               title:modal
 
              }

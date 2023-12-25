@@ -15,12 +15,13 @@ import axios  from "axios";
 import "./Detail.scss"
 function Detail() {
   const [data, setData] = useState([]);
+  const [state, setstate] = useState(false);
   const dispatch = useDispatch()
   useEffect(() => {
     axios("https://usersapitaskk.onrender.com/users").then((res)=>{
       setData(res.data)
     })
-  }, []);
+  }, [state]);
 
 
   const { id } = useParams();
@@ -37,7 +38,7 @@ console.log(id)
       <div className="head">
         <h1>User's Posts</h1>
         <div className="posts">
-          {findUser.posts && findUser.posts.map((element)=>{
+          {findUser && findUser.posts && findUser?.posts.map((element)=>{
             return <Card sx={{ width: 345 }}>
             <CardMedia
               sx={{ height: 200 }}
@@ -58,10 +59,11 @@ console.log(id)
               <Button onClick={()=>{
                 console.log(element.id)
                 let obj = {
-                  userId:element.id,
-                  postId:findUser.id
+                  userId:findUser.id,
+                  postId:element.id
                 }
                 dispatch(deletePost(obj))
+                setstate((state)=>!state)
               }} color="error" size="small">Delete</Button>
             </CardActions>
           </Card>
