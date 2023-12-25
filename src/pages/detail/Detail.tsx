@@ -9,11 +9,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { deletePost, postUser } from "../../redux/slices/AdminUserSlice.ts";
 import { useState } from "react";
 import axios  from "axios";
 import "./Detail.scss"
 function Detail() {
   const [data, setData] = useState([]);
+  const dispatch = useDispatch()
   useEffect(() => {
     axios("https://usersapitaskk.onrender.com/users").then((res)=>{
       setData(res.data)
@@ -55,11 +57,11 @@ console.log(id)
             <CardActions>
               <Button onClick={()=>{
                 console.log(element.id)
-                let arr = findUser.posts.filter((elem)=> elem.id !== element.id)
-                console.log(arr)
-                findUser.posts = arr
-                axios.patch("https://usersapitaskk.onrender.com/users" + id,findUser
-                )
+                let obj = {
+                  userId:element.id,
+                  postId:findUser.id
+                }
+                dispatch(deletePost(obj))
               }} color="error" size="small">Delete</Button>
             </CardActions>
           </Card>

@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 export const getAllUsers = createAsyncThunk("getAllUsers", async () => {
@@ -58,6 +58,16 @@ export const AdminUserSlice = createSlice({
 //       });
       
     },
+    deletePost: (state, action: PayloadAction<object>) => {
+      console.log(current(state.users))
+      console.log(action.payload)
+      let findUser = current(state.users).find((elem)=> elem.id == action.payload.userId)
+      console.log(findUser)
+      // axios.patch(`https://usersapitaskk.onrender.com/users/${action.payload.userId}` +
+      // )
+
+      
+    },
   },
 
   extraReducers: (builder) => {
@@ -77,6 +87,6 @@ export const AdminUserSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { deleteUser, postUser,sendNot } = AdminUserSlice.actions;
+export const { deleteUser, postUser,sendNot,deletePost } = AdminUserSlice.actions;
 
 export default AdminUserSlice.reducer;

@@ -3,6 +3,7 @@ import adminUserReducer from "../slices/AdminUserSlice.ts";
 export const store = configureStore({
   reducer: {
     users: adminUserReducer,
+    
   },
 });
 
