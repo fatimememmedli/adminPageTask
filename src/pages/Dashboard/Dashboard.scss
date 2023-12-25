@@ -1,0 +1,87 @@
+.dashboard {
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, 
+    
+    sans-serif;
+    // color: white;
+    .right{
+        margin: 50px auto;
+        display: flex;
+        color:rgb(31, 24, 75) ;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        gap: 50px;
+        .box{
+            width: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            border-radius: 10px ;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            background: rgb(90,173,255);
+background: linear-gradient(7deg, rgba(90,173,255,0.8408613445378151) 0%, rgba(32,0,218,0.375875350140056) 98%);
+            .circle{
+                border: 1px solid red;
+                height: 260px;
+                border-radius: 50%;
+                border: 10px solid rgb(82, 62, 194);
+                width: 260px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                .fa-users{
+                    font-size: 40px;
+                    color:rgb(31, 24, 75) ;
+
+                }
+                .fa-images{
+                    font-size: 40px;
+                    color:rgb(31, 24, 75) ;
+                }
+            
+
+            }
+        }
+        .analitics{
+            width: 500px;
+            height: 130px;
+            border-bottom: 1px solid black;
+            border-left: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+           justify-content: flex-end;
+           padding-left: 3px;
+         
+           padding-bottom: 10px;
+            .item{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                p{
+                    width: 50px;
+                }
+                .full1{
+                    width: 190px;
+                    height: 17px;
+                    background-color: rgb(31, 24, 75) ;
+                }
+                .full2{
+                    width: 160px;
+                    height: 17px;
+                    background-color: rgb(31, 24, 75) ;
+                }
+                .full3{
+                    width: 180px;
+                    height: 17px;
+                    background-color: rgb(31, 24, 75) ;
+                }
+            }
+
+        }
+
+    }
+}
